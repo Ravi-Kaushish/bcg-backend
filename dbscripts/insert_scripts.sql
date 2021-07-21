@@ -10,9 +10,9 @@ INSERT INTO public.regions ("name",zip) VALUES
 	 ('South','202125');
 
 INSERT INTO public.income_groups (income_range,description) VALUES
-	 ('0-25','People with income range in 0- $25K'),
-	 ('25-70','People with income range in $25-$70K'),
-	 ('70- 125','People with income range in $70-$7125K');
+	 ('$0-$25K','People with income range in 0- $25K'),
+	 ('$25-$70K','People with income range in $25-$70K'),
+	 ('$70-$125K','People with income range in $70-$7125K');
 
 INSERT INTO public.customers ("name",email,phone,gender_code,dob,marital_status,region,income_group_id,is_active,created_date,updated_date) VALUES
 	 ('harry','harry@gmail.com','0123456789','M',NULL,true,'1',1,true,'2021-07-22 01:26:45.894','2021-07-22 01:26:45.894'),
