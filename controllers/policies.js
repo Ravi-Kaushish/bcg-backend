@@ -1,8 +1,9 @@
-const { ExecuteQuery } = require('../utils/database')
+const { ExecuteQuery } = require('../utils/database');
 
 //Get all Policies Handler
 exports.GetPolicies = async (req, res) => {
-  let results = await ExecuteQuery('Sql Query')
+  // let query = 
+  let results = await ExecuteQuery('Sql Query');
   res.send(results);
 };
 
