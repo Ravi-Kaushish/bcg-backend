@@ -1,9 +1,11 @@
-const { ExecuteQuery } = require('../utils/database');
+const { GetPoliciesFromDB } = require('../dblayer/policies');
 
 //Get all Policies Handler
 exports.GetPolicies = async (req, res) => {
-  // let results = await ExecuteQuery('Sql Query');
-  res.send("Policies Data");
+  // Handle Data Validation here
+
+  // Calling the DB layer
+  res.send(await GetPoliciesFromDB(req.params));
 };
 
 // Create a Policy Handler

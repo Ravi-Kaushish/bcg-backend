@@ -1,5 +1,7 @@
+const { ExecuteQuery } = require('../utils/sequelize');
+
 // SQL Query to get all Insurances
-exports.GetInsurancesQuery = async () => {
+exports.GetInsurances = async () => {
   //should call the generaic method/function to create SQL queries dynamically here
   //Returning Queries from here
   return `SELECT i.insurance_id, p.policy_id, c.customer_id, c.name, c.email, to_char(i.purchase_date, 'DD/MM/YYYY') as purchase_date,

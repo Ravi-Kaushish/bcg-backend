@@ -1,10 +1,11 @@
-const { ExecuteQuery } = require('../utils/database');
-const { GetInsurancesQuery } = require('../queries/insurances');
+const { GetInsurancesFromDB } = require('../dblayer/insurances');
 
-//Get all Insurances Handler
+// Get all Insurances Handler
 exports.GetInsurances = async (req, res) => {
-  let [insurances, metadata] = await ExecuteQuery(await GetInsurancesQuery());
-  res.send(insurances);
+  // Handle Data Validation here
+
+  // Calling the DB layer
+  res.send(await GetInsurancesFromDB(req.params));
 };
 
 // Create a Insurance Handler
