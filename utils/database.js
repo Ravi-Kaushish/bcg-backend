@@ -27,7 +27,6 @@ exports.GetDbConnection = async () => {
 // Responsible for executing a query with the databindings
 exports.ExecuteQuery = async (query, binds = {}) => {
   let connection = await this.GetDbConnection();
-  console.log(connection);
   return await connection.query(query, {
     //Passing the values as parameters(binds) to avoid sql injections
     binds

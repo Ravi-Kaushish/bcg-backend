@@ -2,8 +2,9 @@
 exports.Authorization = async (req, res, next) => {
   if (req.headers["authorization"] && req.headers["authorization"] === "Bearer your_access_token") {
     //Should Verify the Authorization headers to authorize users
-
     // const result = await VerifyToken(req.headers["authorization"].replace("Bearer ", ""));
+
+    //calling next to call handler
     return next();
   } else {
     res.statusCode = 401
