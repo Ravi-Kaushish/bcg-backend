@@ -29,7 +29,7 @@ CREATE TABLE public.customers (
   gender_code varchar(1) null,
   dob varchar(100) null,
   marital_status bool null,
-  region_id int null,
+  region_id int8 null,
   income_group_id int null,
   is_active bool null default true,
   created_date timestamptz NULL DEFAULT now(),

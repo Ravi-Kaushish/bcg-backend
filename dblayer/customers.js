@@ -8,8 +8,11 @@ exports.GetCustomersFromDB = async (data) => {
 
   //taking the sample query to return all customers
   let query = `SELECT
-  customer_id,  name,  email,  phone,  gender_code,   dob,  marital_status,  region_id,  income_group_id
-  FROM public.customers
+  customer_id,  c.name,  email,  phone,  g.code as gender,  marital_status,  r.name as region,  i.income_range as income
+  FROM public.customers c
+  INNER JOIN public.genders g ON c.gender_code = g.code 
+  INNER JOIN public.regions r ON c.region_id = r.id
+  INNER JOIN public.income_groups i ON i.id = c.income_group_id
   ORDER BY customer_id;`
 
   //Executing Query and returning results
