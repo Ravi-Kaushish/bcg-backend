@@ -15,15 +15,31 @@ exports.CreatePolicy = async (req, res) => {
 
 // Get a Policy by Id Handler
 exports.GetPolicyById = async (req, res) => {
-  res.send("Policy Details");
+  if (!req.params.policy_id) {
+    res.statusCode = 400;
+    res.send("Policy Id is required to retrieve its details");
+  } else {
+    res.send("Policy Details");
+  }
 };
 
 // Update a Policy using Id Handler
 exports.UpdatePolicy = async (req, res) => {
-  res.send("Policy Updated");
+  if (!req.params.policy_id) {
+    res.statusCode = 400;
+    res.send("Policy Id is required to Update a policy");
+  } else {
+    res.send("Policy Updated");
+  }
 };
 
 // Delete a Policy using Id Handler
 exports.DeletePolicy = async (req, res) => {
-  res.send("Policy Deleted");
+  if (!req.params.policy_id) {
+    res.statusCode = 400;
+    res.send("Policy Id is required to delete a policy");
+  } else {
+    //Add the Logic to delete a Policy
+    res.send("Policy Deleted");
+  }
 };
