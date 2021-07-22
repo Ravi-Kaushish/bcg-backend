@@ -1,7 +1,7 @@
 const { ExecuteQuery } = require('../utils/sequelize');
 
 // SQL Query to get all Insurances
-exports.GetInsurancesFromDB = async (data) => {
+exports.GetAnalyticsDataFromDB = async (data) => {
   //Data is an object that hold data required to execute sql query, like condition data, fields to insert in case of insert and update queries
 
   //should call the generaic method/function to create SQL queries dynamically here
