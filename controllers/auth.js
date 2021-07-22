@@ -1,6 +1,11 @@
 //Login Handler
 exports.Login = async (req, res) => {
-  res.send("Logged in")
+  //Authentication Logic Goes Here
+
+  res.send({
+    "access_token": "your_access_token",
+    "expiry": new Date().setHours(new Date().getHours() + 6)
+  })
 };
 
 // Signup Handler

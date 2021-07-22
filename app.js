@@ -23,13 +23,15 @@ app.get("/", (req, res) => {
 const auth = require('./routes/auth');
 const insurances = require('./routes/insurances');
 const customers = require('./routes/customers');
-const policies = require('./routes/policies');
+const policies = require('./routes/analytics');
+const analytics = require('./routes/analytics');
 
 //Using/exposing routes/endpoints
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/insurances", insurances);
 app.use("/api/v1/customers", customers);
 app.use("/api/v1/policies", policies);
+app.use("/api/v1/analytics", analytics);
 
 // Exposing Epp on PORT
 app.listen(PORT, () => {
