@@ -1,4 +1,5 @@
-const { GetInsurancesFromDB, GetInsuranceDetailsFromDB, UpdateInsurancePolicy, DeleteInsuranceFromDB } = require('../dblayer/insurances');
+const { GetInsurancesFromDB, GetInsuranceDetailsFromDB, UpdateInsuranceDataById, DeleteInsuranceFromDB } = require('../dblayer/insurances');
+const { UpdatePolicyById } = require('../dblayer/policies');
 
 // Get all Insurances Handler
 exports.GetInsurances = async (req, res) => {
@@ -57,9 +58,13 @@ exports.UpdateInsurance = async (req, res) => {
       res.statusCode = 400;
       res.send("Invalid premium amount, premium amout should be between 1 and 1000000");
     } else {
-      // Add the additional logic and call the DB layer from here
-      let rowUpdated = await UpdateInsurancePolicy(data);
-      res.send(rowUpdated ? "Insurance Policy Updated" : "Failed to update Insurance Policy, please try again");
+      // If we Need to change anything in Insurance Table, we will call the Insurance DB Layer
+      // let insurance = await UpdateInsuranceDataById(data);
+
+
+      //We are updating the policy related for an insurance, so we will call the Policy DB Layer from here
+      let policyUpdate = await UpdatePolicyById(data);
+      res.send(policyUpdate ? "Insurance Policy Updated" : "Failed to update Insurance Policy, please try again");
     }
   }
 };

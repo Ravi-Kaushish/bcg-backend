@@ -22,3 +22,20 @@ exports.GetPoliciesFromDB = async (data) => {
   let [policies, metadata] = await ExecuteQuery(query);
   return policies;
 };
+
+exports.UpdatePolicyById = async (data) => {
+  //We should add additional checks to map the policy with Insurance Id
+  let query = `UPDATE public.policies p 
+    SET
+    premium = ${data.premium},
+    body_injury_liability=${data.body_injury_liability},
+    personal_injury_protection=${data.personal_injury_protection},
+    property_damage_liability=${data.property_damage_liability},
+    collision=${data.collision},
+    comprehensive=${data.comprehensive}
+    WHERE p.policy_id=${data.policy_id};`
+
+  //Executing Update Query to update policy specs
+  let [insurance, metadata] = await ExecuteQuery(query);
+  return metadata.rowCount;
+}
