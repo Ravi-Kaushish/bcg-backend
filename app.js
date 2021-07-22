@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 const auth = require('./routes/auth');
 const insurances = require('./routes/insurances');
 const customers = require('./routes/customers');
-const policies = require('./routes/analytics');
+const policies = require('./routes/policies');
 const analytics = require('./routes/analytics');
 
 //Using/exposing routes/endpoints
