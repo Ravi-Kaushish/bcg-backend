@@ -58,7 +58,8 @@ exports.UpdateInsurance = async (req, res) => {
       res.send("Invalid premium amount, premium amout should be between 1 and 1000000");
     } else {
       // Add the additional logic and call the DB layer from here
-      res.send(await UpdateInsurancePolicy(data));
+      let rowUpdated = await UpdateInsurancePolicy(data);
+      res.send(rowUpdated ? "Insurance Policy Updated" : "Failed to update Insurance Policy, please try again");
     }
   }
 };

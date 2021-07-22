@@ -54,7 +54,7 @@ exports.UpdateInsurancePolicy = async (data) => {
   comprehensive=${data.comprehensive}
   WHERE p.policy_id=${data.policy_id};`
   let [insurance, metadata] = await ExecuteQuery(query);
-  return metadata;
+  return metadata.rowCount;
 }
 
 // Deleting An insurance
