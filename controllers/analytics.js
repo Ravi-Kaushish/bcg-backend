@@ -6,6 +6,8 @@ exports.GetInsuranceAnalytics = async (req, res) => {
 
   //Can do the server side tranformation here if needed
 
+  //Flexibilty to allow user query data based on regions
+  let region = req.query.region && req.query.region.toLowerCase() || "all"
   // Calling the DB layer
-  res.send(await GetAnalyticsDataFromDB());
+  res.send(await GetAnalyticsDataFromDB({region}));
 };
